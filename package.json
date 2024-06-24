@@ -1,0 +1,22 @@
+{
+  "name": "cs-signals",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && cls"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^20.14.8",
+    "grammy": "^1.25.1",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.11"
+  }
+}
