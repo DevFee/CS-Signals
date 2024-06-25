@@ -28,7 +28,7 @@ export function Sortsignal() {
 🚨 \*ENTRADA CONFIRMADA\* 🚨
 
 💣 Bombas: \*${Math.round(Math.random() + 3)}\*
-🎲 Acerto: \*${Math.round(Math.random() * 30 + 70)}\*
+🎲 Acerto: \*${Math.round(Math.random() * 30 + 70)}%\*
 ⏳ Valido: \*${new Date().getHours()}:${new Date().getMinutes()+3}\*
 🎯 Entrada:
 
