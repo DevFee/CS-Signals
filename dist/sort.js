@@ -10,10 +10,18 @@ function Sortsignal() {
         "🟦", "🟦", "🟦", "🟦", "🟦"
     ];
     let starsCount = 0;
-    const maxBombs = 6;
+    const maxBombs = 5;
     const minBombs = 3;
     const starEmoji = "⭐";
     const chanceThreshold = 0.4;
+    // Obtém a hora atual e adiciona 5 minutos
+    let now = new Date();
+    now.setMinutes(now.getMinutes() + 5);
+    let horas = now.getHours();
+    let minutos = now.getMinutes();
+    // Formata as horas e minutos para garantir dois dígitos
+    let horarioFormatado = `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}`;
+    // Sorteia as estrelas no mapa de sinais
     for (let i = 0; i < signalMap.length; i++) {
         if (starsCount >= maxBombs) {
             break;
@@ -24,12 +32,13 @@ function Sortsignal() {
             starsCount++;
         }
     }
+    // Monta a nova mensagem do mapa
     let newMap = `
-🚨 \*ENTRADA CONFIRMADA\* 🚨
+🚨 *ENTRADA CONFIRMADA* 🚨
 
-💣 Bombas: \*${Math.round(Math.random() + 3)}\*
-🎲 Acerto: \*${Math.round(Math.random() * 30 + 70)}%\*
-⏳ Valido: \*${new Date().getHours()}:${new Date().getMinutes() + 3}\*
+💣 Bombas: *${Math.round(Math.random() + 3)}*
+🎲 Acerto: *${Math.round(Math.random() * 30 + 70)}%*
+⏳ Válido: *${horarioFormatado}*
 🎯 Entrada:
 
 `;
@@ -43,14 +52,20 @@ function Sortsignal() {
         }
     }
     newMap += `
-\*VALIDO PARA TODAS AS PLATAFORMAS!\*
+*VÁLIDO PARA TODAS AS PLATAFORMAS!*
     `;
+    // Verifica se o número de estrelas é menor que o mínimo e retorna uma mensagem diferente se necessário
     if (starsCount < minBombs) {
+        let nextSignalTime = new Date();
+        nextSignalTime.setMinutes(nextSignalTime.getMinutes() + 5);
+        let nextSignalHour = nextSignalTime.getHours();
+        let nextSignalMinute = nextSignalTime.getMinutes();
+        let nextSignalFormatted = `${nextSignalHour.toString().padStart(2, '0')}:${nextSignalMinute.toString().padStart(2, '0')}`;
         return `
-\* Opps... \*🫤
-Parece que o horario não tá pagando bem, Mas iremos realizar outra pesquisa para verificar o melhor sinal para você usuario!
+* Ops... *🫤
+Parece que o horário não está pagando bem, mas iremos realizar outra pesquisa para verificar o melhor sinal para você usuário!
 
-⏳ o proximo sinal será enviado as ${new Date().getHours()}:${new Date().getMinutes() + 5}`;
+⏳ O próximo sinal será enviado às ${nextSignalFormatted}`;
     }
     return newMap;
 }

@@ -5,6 +5,7 @@ const sort_1 = require("./sort");
 const bot = new grammy_1.Bot("7452038255:AAGotzzpObaBOBzpc4lDViCVPLfXlIdEwo8");
 bot.command("start", (ctx) => {
     if (ctx.chat.id === -1002213183820) {
+        ctx.reply("🎲 \*Iniciando...\*", { parse_mode: "Markdown" });
         setInterval(() => {
             ctx.reply((0, sort_1.Sortsignal)(), { parse_mode: "Markdown" });
         }, 300000);
