@@ -2,12 +2,26 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "./index.js",
-    "rootDir": "./src/index.ts",
+    "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "src"
   },
-  "include": [
-    "src/**/*.ts"
-  ]
+  "include": ["src"]
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "es6",
+//     "module": "commonjs",
+//     "outDir": "./dist",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "rootDir": "src"
+//   },
+//   "include": ["src"]
+// }\
